@@ -465,7 +465,7 @@ func findTypeDef(importPath, typeName string) (*ast.TypeSpec, error) {
 	for k := range lprog.AllPackages {
 		realPkgPath := k.Path()
 
-		if strings.Contains(realPkgPath, "vendor/"+importPath) {
+		if strings.HasSuffix(realPkgPath, "vendor/"+importPath) {
 			importPath = realPkgPath
 		}
 	}
