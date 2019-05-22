@@ -467,7 +467,9 @@ func findTypeDef(importPath, typeName string) (*ast.TypeSpec, error) {
 
 		if strings.HasSuffix(realPkgPath, "vendor/"+importPath) {
 			importPath = realPkgPath
+			break
 		}
+
 	}
 
 	pkgInfo := lprog.Package(importPath)
